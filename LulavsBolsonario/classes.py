@@ -1,6 +1,7 @@
+import os
 
-class Pernsonagens:
-    def __init__(self,vida):
+class Personagens:
+    def __init__(self, vida):
         self.vida = vida
     
     def getvida(self):
@@ -10,46 +11,63 @@ class Pernsonagens:
         if y  == "somar":
             if self.vida <= 41:
                 self.vida = self.vida + x
-            else:
+                print("É ISSO QUE O POVO QUER, COMPANHEIRO!\nLula come sua picanha e bebe uma cervejinha! (+4 pontos de vida)")
+
+            elif self.vida >= 41:
                 print("Vida cheia")
+                
         elif y == "subtrair":
             self.vida = self.vida - x
     
 
-    def esquivar(self):
-        print(f"Você esquivou do ataque")
+    def Esquivar(self):
+        print("Você esquivou do ataque")
+        os.system("pause")
+        os.system("cls")
 
-    def atacar(self, nome):
-        print("POW POW POW - Você deu um soco!")
+    def Atacar(self, nome):
+        print("POW POW POW\nVocê deu um soco! (-2 pontos de vida)")
         nome.setvida(2, "subtrair")
+        os.system("pause")
+        os.system("cls")
 
+class Lula(Personagens):
+    def Amizade(self):
+        print("VAMOS JUNTOS COMPANHEIROS!!!\nJuntos, vocês espancaram Bolsonaro! (-5 pontos de vida)")
+        bolsonaro.setvida(5, "subtrair")
+        os.system("pause")
+        os.system("cls")
 
-class Lula(Pernsonagens):
-    def amizade(self):
-        print("VAMOS JUNTOS COMPANHEIROS!!! - Juntos vocês espancaram Bolsonaro")
-        bolsonaro.setvida(5,"subtrair")
+    def PicanhaCervejinha(self):
+        lula.setvida(4, "somar")
+        os.system("pause")
+        os.system("cls")
 
-    def Picanhaecervejinha(self):
-        print("É ISSO QUE O POVO QUER!! INHAMI INHAMI INHAMI - Lula come sua picanha e cerveja, recuperando sua vida")
-        bolsonaro.setvida(4,"somar")
-
-    def AjudaLGBTQIAPN(self):
-        print("VAMOS JUNTES GAYS!! - Vocês todes ajudaram Lula, dando um golpe forte em Bolsonaro  ")
+    def AjudaGays(self):
+        print("VAMOS TODES JUNTES GAYS!!!\nVocês todes ajudaram Lula dando um golpe forte em Bolsonaro! (-4 pontos de vida)")
         bolsonaro.setvida(4, "subtrair")
+        os.system("pause")
+        os.system("cls")
 
-class Bolsonaro(Pernsonagens):
+class Bolsonaro(Personagens):
 
-    def Facadanoestomago(self):
-        print("OLHA A FACA - Lula levou uma facada e está sangrando")
-        lula.setvida(5,"subtrair")
+    def FacadaEstomago(self):
+        print("OLHA A FACA!\nLula levou uma facada e está sangrando! (-5 pontos de vida)")
+        lula.setvida(5, "subtrair")
+        os.system("pause")
+        os.system("cls")
 
-    def Tossedacovid(self):
-        print("COF COF COF - Lula se infectou")
-        lula.setvida(5,"subtrair")
+    def TosseCovid(self):
+        print("COF COF COF!\nLula se infectou! (-3 pontos de vida)")
+        lula.setvida(3, "subtrair")
+        os.system("pause")
+        os.system("cls")
 
-    def Tomacloroquina(self):
-        print("VACINA JAMAIS, VIVA A CLOROQUINA - Bolsonaro virá jacaré e te morde")
-        lula.setvida(5,"subtrair" )
+    def TomaCloroquina(self):
+        print("VACINA JAMAIS, VIVA A CLOROQUINA!\nBolsonaro se transforma em jacaré e te dá uma mordida! (-1 pontos de vida)")
+        lula.setvida(1, "subtrair" )
+        os.system("pause")
+        os.system("cls")
 
 lula = Lula(45)
 bolsonaro = Bolsonaro(45)
